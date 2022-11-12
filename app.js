@@ -13,6 +13,9 @@ let buttonAllCars = document.querySelector(".btn-primary");
 let inputDeLa = document.querySelector(".deLa-input");
 let inputPanaLa = document.querySelector(".panaLa-input");
 let buttonPret = document.querySelector(".btn-pret");
+let checkBoxAvailableCars = document.querySelector(".checkboxAvailableCars");
+let inputDeleteByVIN = document.querySelector(".deleteByVIN");
+let buttonDeleteVIN = document.querySelector(".btn-delete-vin");
 
 container.innerHTML = createRows(masini);
 filterMarca.innerHTML = createFilterOptions(getDistinctMarca(masini));
@@ -68,4 +71,19 @@ buttonPret.addEventListener("click", (e) => {
     max = Number(inputPanaLa.value);
   }
   container.innerHTML = createRows(getCarsBetweenPrice(masini, min, max));
+});
+
+//nu functioneaza
+checkBoxAvailableCars.addEventListener("change", (e) => {
+  if (e.target.checked === true) {
+    container.innerHTML = createRows(getAvailableCars(masini));
+  } else {
+    container.innerHTML = createRows(getAllCars(masini));
+  }
+});
+
+//nu se realizeaza stergerea din cauza functiei deleteCarByVIN
+buttonDeleteVIN.addEventListener("click", (e) => {
+  let vinToBeDelete = inputDeleteByVIN.value;
+  container.innerHTML = createRows(deleteCarByVIN(masini, vinToBeDelete));
 });

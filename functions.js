@@ -161,3 +161,27 @@ function getCarsBetweenPrice(arr, min, max) {
   }
   return v;
 }
+
+function getAvailbaleCars(arr) {
+  let v = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].disponibila === true) {
+      v.push(arr[i]);
+    }
+  }
+  if (v.length > 0) {
+    return v;
+  } else {
+    console.error("There is no available car !");
+  }
+}
+
+function deleteCarByVIN(arr, vin) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].sasiu === vin) {
+      console.log(arr[i]);
+      arr.slice(i, 1);
+      return arr;
+    }
+  }
+}

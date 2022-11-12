@@ -29,7 +29,7 @@
             <button type="button" class="btn btn-danger" style="grid-area: btn;">Search</button>
         </article>
 
-        <article class="filters-year" style="display: flex; flex-direction: column;">
+        <article class="filters-year" style="display: flex; flex-direction: column; border: 2px solid #2d6883">
             <label for="pret" style="text-align: center;"><span class="badge bg-secondary">Pret</span></label>
             <label for="deLa">de la:</label>
             <input type="number" class="deLa-input">
@@ -37,6 +37,21 @@
             <input type="number" class="panaLa-input">
             <button type="button" class="btn btn-danger btn-pret" style="grid-area: btn;">Search</button>
         </article>
+
+        <article class="filters-available"
+            style="border: 2px solid #2d6883; display: flex; flex-direction: column; justify-content: center;">
+            <input type="checkbox" id="scales" name="scales" checked class="checkboxAvailableCars">
+            <label for="scales" style="text-align: center;"><span class="badge bg-secondary">Available
+                    Cars</span></label>
+        </article>
+
+        <!--de ce nu se duce pe urmatorul rand daca depaseste-->
+        <article class="delete-vin" style="border: 2px solid #2d6883;">
+            <label for="text"><span class="badge bg-secondary">Delete by VIN</span></label>
+            <input type="text" required minlength="17" maxlength="17" style="width: 130px;" class="deleteByVIN">
+            <button type="button" class="btn btn-danger btn-delete-vin" style="grid-area: btn;">Delete</button>
+        </article>
+
     </section>
 
     <button type="button" class="btn btn-primary">Show all cars</button>
