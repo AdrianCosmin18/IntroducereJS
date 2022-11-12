@@ -1,0 +1,84 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* gap: 40px; */
+}
+
+.filters {
+  border: 2px solid green;
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-rows: minmax(100px, 1fr) minmax(100px, 1fr);
+  grid-column-gap: 5px;
+}
+
+table {
+  width: 50%;
+  border-radius: 1%;
+  overflow: hidden;
+  color: #2d6883;
+  border-collapse: separate;
+}
+
+thead {
+  background-color: #2d6883;
+  color: black;
+}
+
+.firstLine th {
+  font-size: 15px;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+}
+
+tbody th,
+td {
+  background-color: #daeff1;
+  text-align: center;
+}
+
+.info {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "marca model year" "sasiu disp pret" ". btn . ";
+  grid-gap: 10px;
+}
+
+.info article {
+  display: flex;
+  flex-direction: column;
+}
+
+.marca {
+  grid-area: marca;
+}
+
+.model {
+  grid-area: model;
+}
+
+.sasiu {
+  grid-area: sasiu;
+}
+
+.year {
+  grid-area: year;
+}
+
+.disp {
+  grid-area: disp;
+  display: flex;
+  flex-direction: row;
+}
+
+.pret {
+  grid-area: pret;
+}
+
+.btn {
+  grid-area: btn;
+}
