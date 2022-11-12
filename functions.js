@@ -149,10 +149,13 @@ function getCarById(arr, id) {
   return console.error("Eroare: nu exsita nicio masina cu acest id");
 }
 
-function createFilterArrayById(arr, id) {
+function getCarsBetweenPrice(arr, min, max) {
+  if (min > max) {
+    return console.error("Eroare");
+  }
   let v = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].id === id) {
+    if (arr[i].pret >= min && arr[i].pret <= max) {
       v.push(arr[i]);
     }
   }
