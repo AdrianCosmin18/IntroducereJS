@@ -149,13 +149,10 @@ function getCarById(arr, id) {
   return console.error("Eroare: nu exsita nicio masina cu acest id");
 }
 
-function getCarsBetweenPrice(arr, min, max) {
-  if (min > max) {
-    return console.error("Eroare");
-  }
+function getCarsBetweenPrice(arr) {
   let v = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].pret >= min && arr[i].pret <= max) {
+    if (arr[i].pret >= inputDeLa.value && arr[i].pret <= inputPanaLa.value) {
       v.push(arr[i]);
     }
   }
@@ -177,11 +174,25 @@ function getAvailbaleCars(arr) {
 }
 
 function deleteCarByVIN(arr, vin) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].sasiu === vin) {
-      console.log(arr[i]);
-      arr.slice(i, 1);
-      return arr;
-    }
+  return arr.filer((e) => e.vin != vin);
+}
+
+//inputMarca, inputModel, inputSasiu, inputAn, inputDisp, inputPret
+function resetCar() {
+  inputMarca.value = "";
+  inputModel.value = "";
+  inputSasiu.value = "";
+  inputAn.value = "";
+  inputDisp.checked = false;
+  inputPret.value = "";
+}
+
+function checkIfMinIsBiggerThenMax() {
+  if (inputDeLa.value == 0) {
+    return false;
   }
+  if (inputDeLa.value > inputPanaLa.value) {
+    return true;
+  }
+  return false;
 }

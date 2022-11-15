@@ -16,28 +16,29 @@ let buttonPret = document.querySelector(".btn-pret");
 let checkBoxAvailableCars = document.querySelector(".checkboxAvailableCars");
 let inputDeleteByVIN = document.querySelector(".deleteByVIN");
 let buttonDeleteVIN = document.querySelector(".btn-delete-vin");
+let sasiuUpdate = document.querySelector(".updateByVIN");
+let disponibilaUpdate = document.querySelector(".disponibilitateModificare");
+let pretModificare = document.querySelector(".pretModificare");
 
 container.innerHTML = createRows(masini);
 filterMarca.innerHTML = createFilterOptions(getDistinctMarca(masini));
 
-//vreau sa verific daca campurile sunt ok inainte de pot da Adauga
-//vreau sa dispara inputul dat de user dupa ce-l adauga in lista
-//de ce nu apare in lista de masini dupa ce am dat add ?
 buttonAddCar.addEventListener("click", (e) => {
   //user apeleaza metoda printr-un event
   let masina = {
     marca: inputMarca.value,
     model: inputModel.value,
-    sasiu: inputSasiu,
+    sasiu: inputSasiu.va,
     an: inputAn.value,
     disponibila: inputDisp.checked,
     pret: inputPret.value,
   };
   masini.push(masina);
   container.innerHTML = createRows(masini);
+  resetCar();
 });
 
-filterMarca.addEventListener("change", (e) => {
+filterMarca.addEventListener("click", (e) => {
   if (createFilterArrayByMarca(masini, filterMarca.value).length === 0) {
     container.innerHTML = createRows(getAllCars(masini));
   } else {
@@ -52,28 +53,18 @@ buttonId.addEventListener("click", (e) => {
   container.innerHTML = createRow(getCarById(masini, id));
 });
 
-//daca dau click pe o marca, apoi apas butonul de arata toate masinile
-//si apoi apas pe aceeasi marca => nu mi mai filtreaza decat daca apas
-//pe alta marca
 buttonAllCars.addEventListener("click", (e) => {
   container.innerHTML = createRows(getAllCars(masini));
 });
 
-//vreau sa pun numai una din cele 2 limite de pret, dar nu merge
 buttonPret.addEventListener("click", (e) => {
-  let min = 0;
-  if (inputDeLa.value !== null) {
-    min = Number(inputDeLa.value);
+  if (checkIfMinIsBiggerThenMax()) {
+    console.error("EROARE: pret minim mai mare decat pret maxim");
+  } else {
+    container.innerHTML = createRows(getCarsBetweenPrice(masini));
   }
-
-  let max = 99999;
-  if (inputPanaLa !== null) {
-    max = Number(inputPanaLa.value);
-  }
-  container.innerHTML = createRows(getCarsBetweenPrice(masini, min, max));
 });
 
-//nu functioneaza
 checkBoxAvailableCars.addEventListener("change", (e) => {
   if (e.target.checked === true) {
     container.innerHTML = createRows(getAvailableCars(masini));
