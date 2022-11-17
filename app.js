@@ -35,9 +35,10 @@ buttonAddCar.addEventListener("click", (e) => {
   };
   masini.push(masina);
   container.innerHTML = createRows(masini);
+  resetCar();
 });
 
-filterMarca.addEventListener("change", (e) => {
+filterMarca.addEventListener("click", (e) => {
   if (createFilterArrayByMarca(masini, filterMarca.value).length === 0) {
     container.innerHTML = createRows(getAllCars(masini));
   } else {

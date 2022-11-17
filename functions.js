@@ -185,3 +185,13 @@ function deleteCarByVIN(arr, vin) {
   }
   return v;
 }
+
+//inputMarca, inputModel, inputSasiu, inputAn, inputDisp, inputPret
+function resetCar() {
+  inputMarca.value = "";
+  inputModel.value = "";
+  inputSasiu.value = "";
+  inputAn.value = "";
+  inputDisp.checked = false;
+  inputPret.value = "";
+}
