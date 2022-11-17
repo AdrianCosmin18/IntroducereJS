@@ -174,7 +174,14 @@ function getAvailbaleCars(arr) {
 }
 
 function deleteCarByVIN(arr, vin) {
-  return arr.filer((e) => e.vin != vin);
+
+  let v = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].sasiu !== vin) {
+      v.push(arr[i]);
+    }
+  }
+  return v;
 }
 
 //inputMarca, inputModel, inputSasiu, inputAn, inputDisp, inputPret
@@ -185,14 +192,4 @@ function resetCar() {
   inputAn.value = "";
   inputDisp.checked = false;
   inputPret.value = "";
-}
-
-function checkIfMinIsBiggerThenMax() {
-  if (inputDeLa.value == 0) {
-    return false;
-  }
-  if (inputDeLa.value > inputPanaLa.value) {
-    return true;
-  }
-  return false;
 }
