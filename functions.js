@@ -177,11 +177,11 @@ function getAvailbaleCars(arr) {
 }
 
 function deleteCarByVIN(arr, vin) {
+  let v = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].sasiu === vin) {
-      console.log(arr[i]);
-      arr.slice(i, 1);
-      return arr;
+    if (arr[i].sasiu !== vin) {
+      v.push(arr[i]);
     }
   }
+  return v;
 }
