@@ -75,13 +75,14 @@ function describe(car) {
 function createRow(car) {
   return `
    <tr>
-        <th>${car.id}</th>
+        <th type="id" class="car car-${car.id}">${car.id}</th>
         <td>${car.marca}</td>
         <td>${car.model}</td>
         <td>${car.sasiu}</td>
         <td>${car.an}</td>
         <td>${car.disponibila}</td>
         <td>${car.pret}</td>  
+        <td><button type="button" class="btn btn-danger ${car.model}" style="grid-area: btn;">Delete</button>
     </tr>
     `;
 }
@@ -174,10 +175,19 @@ function getAvailbaleCars(arr) {
 }
 
 function deleteCarByVIN(arr, vin) {
-
   let v = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].sasiu !== vin) {
+      v.push(arr[i]);
+    }
+  }
+  return v;
+}
+
+function deleteCarByModel(arr, model) {
+  let v = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!arr[i].model.includes(model)) {
       v.push(arr[i]);
     }
   }
@@ -192,4 +202,30 @@ function resetCar() {
   inputAn.value = "";
   inputDisp.checked = false;
   inputPret.value = "";
+}
+
+function updateCarByVin(
+  arr,
+  sasiu,
+  nouDisponibila,
+  nouPret,
+  nouModel,
+  nouMarca,
+  nouAn
+) {
+  let v = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].sasiu === sasiu) {
+      masina = arr[i];
+      masina.disponibila = nouDisponibila;
+      masina.pret = nouPret;
+      masina.model = nouModel;
+      masina.marca = nouMarca;
+      masina.an = nouAn;
+      v.push(masina);
+    } else {
+      v.push(arr[i]);
+    }
+  }
+  return v;
 }
