@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="index.css">
 </head>
+salut
 
 
 
@@ -48,16 +49,29 @@
                     Cars</span></label>
         </article>
 
-        <!--de ce nu se duce pe urmatorul rand daca depaseste-->
         <article class="delete-vin" style="border: 2px solid #2d6883;">
             <label for="text"><span class="badge bg-secondary">Delete by VIN</span></label>
             <input type="text" required minlength="17" maxlength="17" style="width: 130px;" class="deleteByVIN">
             <button type="button" class="btn btn-danger btn-delete-vin" style="grid-area: btn;">Delete</button>
         </article>
 
+        <article class="update-by-sasiu" style="border: 2px solid #2d6883;">
+            <label for="text"><span class="badge bg-secondary">Update by VIN</span></label>
+            <label for="vin">VIN:</label>
+            <input type="text" required minlength="17" maxlength="17" style="width: 130px;" class="updateByVIN">
+
+            <label for="disp">Modificare Disponibilitate: (scrie da/nu)</label>
+            <input type="text" style="width: 130px;" class="disponibilitateModificare">
+
+            <label for="pretModificat">Modificare pret: </label>
+            <input type="number" style="width: 130px;" class="pretModificare">
+
+            <button type="button" class="btn btn-danger btn-update-vin" style="grid-area: btn;">Update</button>
+        </article>
+
     </section>
 
-    <button type="button" class="btn btn-primary">Show all cars</button>
+    <button type=" button" class="btn btn-primary">Show all cars</button>
 
     <table>
         <thead>
