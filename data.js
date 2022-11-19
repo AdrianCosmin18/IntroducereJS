@@ -135,15 +135,6 @@ let masini = [
     pret: 49481,
   },
   {
-    id: 16,
-    marca: "Ford",
-    model: "F250",
-    sasiu: "JN8AF5MR1ET322181",
-    an: 2010,
-    disponibila: true,
-    pret: 54213,
-  },
-  {
     id: 17,
     marca: "Mazda",
     model: "Familia",
@@ -151,15 +142,6 @@ let masini = [
     an: 1987,
     disponibila: false,
     pret: 34337,
-  },
-  {
-    id: 18,
-    marca: "Mitsubishi",
-    model: "Galant",
-    sasiu: "3VWKX7AJ7BM512145",
-    an: 1985,
-    disponibila: true,
-    pret: 52527,
   },
   {
     id: 19,

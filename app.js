@@ -28,6 +28,8 @@ let inputMarcaModificare = document.querySelector(".marcaModificare");
 let inputAnModificare = document.querySelector(".anModificare");
 let buttonUpdateByVin = document.querySelector(".btn-update-vin");
 
+let criteriu = document.querySelector(".criteriu");
+
 container.innerHTML = createRows(masini);
 filterMarca.innerHTML = createFilterOptions(getDistinctMarca(masini));
 
@@ -81,7 +83,6 @@ checkBoxAvailableCars.addEventListener("change", (e) => {
   }
 });
 
-//nu se realizeaza stergerea din cauza functiei deleteCarByVIN
 buttonDeleteVIN.addEventListener("click", (e) => {
   let vinToBeDelete = inputDeleteByVIN.value;
   masini = deleteCarByVIN(masini, vinToBeDelete);
@@ -134,4 +135,8 @@ container.addEventListener("click", (e) => {
       inputDispModificare.value = "nu";
     }
   }
+});
+
+criteriu.addEventListener("change", (e) => {
+  container.innerHTML = createRows(sortare(masini, criteriu.value));
 });
