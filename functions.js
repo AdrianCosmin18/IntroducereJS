@@ -229,3 +229,20 @@ function updateCarByVin(
   }
   return v;
 }
+
+//sortare dupa marca
+function sortare(arr, criteriu) {
+  let schimb, aux;
+  do {
+    schimb = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i][`${criteriu}`] > arr[i + 1][`${criteriu}`]) {
+        aux = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = aux;
+        schimb = true;
+      }
+    }
+  } while (schimb);
+  return arr;
+}
